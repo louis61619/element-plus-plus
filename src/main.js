@@ -5,12 +5,10 @@ import store from './store'
 
 import axios from 'axios'
 
-// if (process.env.NODE_ENV === 'production') {
-//   const { mockXHR } = require('../mock')
-//   mockXHR()
-// }
-const { mockXHR } = require('../mock')
-mockXHR()
+if (process.env.NODE_ENV === 'production') {
+  const { mockXHR } = require('../mock')
+  mockXHR()
+}
 
 createApp(App).use(store).use(router).mount('#app')
 
@@ -21,6 +19,5 @@ axios
   .then((response) => {
     if (response.data) {
       console.log(response.data)
-      alert(response.data.success + ',' + response.data.message)
     }
   })
