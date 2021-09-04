@@ -1,13 +1,6 @@
 <script lang="tsx">
 /* eslint no-use-before-define: 0 */
-import {
-  defineComponent,
-  ref,
-  onMounted,
-  watch,
-  onBeforeUnmount,
-  shallowRef
-} from 'vue'
+import { defineComponent, ref, onMounted, watch, onBeforeUnmount, shallowRef } from 'vue'
 
 import * as Monaco from 'monaco-editor'
 
@@ -40,18 +33,15 @@ export default defineComponent({
     let __prevent_trigger_change_event = false
 
     onMounted(() => {
-      const editor = (editorRef.value = Monaco.editor.create(
-        containerRef.value,
-        {
-          value: props.code,
-          language: 'json',
-          formatOnPaste: true,
-          tabSize: 2,
-          minimap: {
-            enabled: false
-          }
+      const editor = (editorRef.value = Monaco.editor.create(containerRef.value, {
+        value: props.code,
+        language: 'json',
+        formatOnPaste: true,
+        tabSize: 2,
+        minimap: {
+          enabled: false
         }
-      ))
+      }))
 
       _subscription = editor.onDidChangeModelContent((event) => {
         console.log('--------->', __prevent_trigger_change_event)

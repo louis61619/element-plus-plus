@@ -57,10 +57,7 @@ export default defineComponent({
     //   demo.dataCode = toJson(v)
     // }
 
-    function handleCodeChange(
-      filed: 'schema' | 'data' | 'uiSchema',
-      value: string
-    ) {
+    function handleCodeChange(filed: 'schema' | 'data' | 'uiSchema', value: string) {
       try {
         const json = JSON.parse(value)
         demo[filed] = json
@@ -87,9 +84,7 @@ export default defineComponent({
             <h1>Vue3 JsonSchema Form</h1>
             <div>
               {demos.map((demo, index) => (
-                <button onClick={() => (selectedRef.value = index)}>
-                  {demo.name}
-                </button>
+                <button onClick={() => (selectedRef.value = index)}>{demo.name}</button>
               ))}
             </div>
           </div>
