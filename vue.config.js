@@ -1,5 +1,9 @@
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
+// const CircularDependencyPlugin = require('circular-dependency-plugin')
+
 module.exports = {
-  devServer: {
-    before: require('./mock/mock-server.js')
+  chainWebpack(config) {
+    config.plugin('monaco').use(new MonacoWebpackPlugin())
+    // config.plugin('circular').use(new CircularDependencyPlugin())
   }
 }
